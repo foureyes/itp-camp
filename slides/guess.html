@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<script>
+var secret = 5;
+var guess = prompt("guess what number I'm thinking of")
+var num = parseInt(guess);
+if(num === secret) {
+	console.log("you won!");
+} else if (num - secret == 1 || num - secret == -1) {
+	console.log("close!");
+} else {
+	console.log("nope, the number is " + secret);
+}
+
+
+</script>
+</body>
+</html>
