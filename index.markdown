@@ -7,4 +7,5 @@ chrome: 0
 Sessions
 =====
 * [Programming for Beginners](js.html)
+* [JavaScript, the Internets and You](slides/01/js-web.html)
 

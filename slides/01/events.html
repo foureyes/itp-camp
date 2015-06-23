@@ -1,0 +1,18 @@
+<div>
+<button id="clickme">Click Me</button>
+</div>
+<script>
+var i = 0;
+var b = document.getElementById("clickme");
+b.addEventListener("click", handleEvent)
+b.style.position = "absolute"
+b.style.left = i + "px";
+
+function handleEvent() {
+
+	alert("hey there");
+	this.style.left = i + "px";
+	i += 5;
+
+}
+</script>

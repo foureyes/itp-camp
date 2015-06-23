@@ -1,0 +1,35 @@
+<script>
+var request = new XMLHttpRequest();
+//var url = "http://api.tumblr.com/v2/tagged?api_key=XBu4Lke6Cyh2UrLFIZW0jIo79sUT8EwtruJduMAknEUNhccNwY&tag=cat";
+//var url = "http://api.tumblr.com/v2/blog/peacecorps.tumblr.com/posts/text?api_key=fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4&notes_info=true"
+//var url = "https://api.instagram.com/v1/tags/nofilter/media/recent?client_id=487dac376c6a4837802aba9a41e326d7";
+var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=7d34b1a101bb5c65b90a4e36922aa51a&tags=cat&format=json&nojsoncallback=1"
+request.open('GET', url, true);
+
+request.onload = handleResponse;
+
+function handleResponse() {
+	if (request.status >= 200 && request.status < 400) {
+		// Success!
+		var resp = JSON.parse(request.responseText);
+		var photos = resp.photos.photo;
+		for(var i = 0; i < photos.length; i++) {
+			var p = photos[i];
+			var imgSrc = "https://farm" + p.farm + ".staticflickr.com/" + p.server + "/" + p.id + "_" + p.secret + ".jpg"; 
+			console.log(imgSrc);
+			var img = document.body.appendChild(document.createElement("img"));
+			img.src = imgSrc;
+		}
+	} else {
+		console.log("oops");
+
+		// We reached our target server, but it returned an error
+	}
+};
+
+request.send();
+request.onerror = function() {
+	console.log("errrrrr");
+};
+
+</script>

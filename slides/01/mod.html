@@ -1,0 +1,13 @@
+<script>
+var imgs = document.getElementsByTagName("img")
+undefined
+for(var i = 0; i < imgs.length; i++) {
+	imgs[i].src = "http://i.imgur.com/lhBiE.gif";
+}
+var links = document.getElementsByTagName("a")
+for(var i = 0; i < imgs.length; i++) {
+	if (links[i].style) {
+		links[i].style.fontSize = "4em";
+	}
+}
+</script>
